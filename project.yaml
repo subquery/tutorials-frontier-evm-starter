@@ -65,9 +65,6 @@ dataSources:
             # function: approve(address,uint256)
             function: approve(address to,uint256 value)
 
-            ## Tx to field, this can be a contract address or user address
-#            to: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
-
             ## The transaction sender
             # from: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
 
