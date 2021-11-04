@@ -2,28 +2,28 @@ import {Approval, Transaction} from "../types";
 import { MoonbeamEvent, MoonbeamCall } from '@subql/contract-processors/dist/moonbeam';
 import { BigNumber } from "ethers";
 
-// TODO setup typegen from ABI using typechain/ethers
+// Setup types from ABI
 type TransferEventArgs = [string, string, BigNumber] & { from: string; to: string; value: BigNumber; };
 type ApproveCallArgs = [string, BigNumber] & { _spender: string; _value: BigNumber; }
 
 export async function handleMoonriverEvent(event: MoonbeamEvent<TransferEventArgs>): Promise<void> {
-    const record = new Transaction(event.transactionHash);
+    const transaction = new Transaction(event.transactionHash);
 
-    record.value = event.args.value.toBigInt();
-    record.from = event.args.from;
-    record.to = event.args.to;
-    record.contractAddress = event.address;
+    transaction.value = event.args.value.toBigInt();
+    transaction.from = event.args.from;
+    transaction.to = event.args.to;
+    transaction.contractAddress = event.address;
 
-    await record.save();
+    await transaction.save();
 }
 
 export async function handleMoonriverCall(event: MoonbeamCall<ApproveCallArgs>): Promise<void> {
-    const record = new Approval(event.hash);
+    const approval = new Approval(event.hash);
 
-    record.owner = event.from;
-    record.value = event.args._value.toBigInt();
-    record.spender = event.args._spender;
-    record.contractAddress = event.to;
+    approval.owner = event.from;
+    approval.value = event.args._value.toBigInt();
+    approval.spender = event.args._spender;
+    approval.contractAddress = event.to;
 
-    await record.save();
+    await approval.save();
 }
