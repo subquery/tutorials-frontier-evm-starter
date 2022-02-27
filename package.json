@@ -18,14 +18,19 @@
   ],
   "author": "Ian He & Jay Ji",
   "license": "Apache-2.0",
-  "devDependencies": {
-    "@polkadot/api": "^6.6.1",
-    "@subql/cli": "latest",
-    "typescript": "^4.4.4"
+  "resolutions": {
+    "@polkadot/api": "7.8.1",
+    "@polkadot/types": "7.8.1",
+    "@polkadot/util": "8.4.1"
   },
   "dependencies": {
-    "@subql/contract-processors": "^0.3.0",
-    "@subql/types": "latest",
-    "ethers": "^5.5.0"
+    "moonbeam-types-bundle": "^2.0.3"
+  },
+  "devDependencies": {
+    "@polkadot/api": "7.8.1",
+    "@subql/cli": "^0.16.2",
+    "@subql/contract-processors": "file:.yalc/@subql/contract-processors",
+    "@subql/types": "^0.14.0",
+    "typescript": "^4.4.4"
   }
 }
