@@ -1,12 +1,13 @@
 import {Approval, Transaction} from "../types";
-import { MoonbeamEvent, MoonbeamCall } from '@subql/contract-processors/dist/moonbeam';
+import { FrontierEvmEvent, FrontierEvmCall } from '@subql/contract-processors/dist/frontierEvm';
+
 import { BigNumber } from "ethers";
 
 // Setup types from ABI
 type TransferEventArgs = [string, string, BigNumber] & { from: string; to: string; value: BigNumber; };
 type ApproveCallArgs = [string, BigNumber] & { _spender: string; _value: BigNumber; }
 
-export async function handleMoonriverEvent(event: MoonbeamEvent<TransferEventArgs>): Promise<void> {
+export async function handleFrontierEvmEvent(event: FrontierEvmEvent<TransferEventArgs>): Promise<void> {
     const transaction = new Transaction(event.transactionHash);
 
     transaction.value = event.args.value.toBigInt();
@@ -17,7 +18,7 @@ export async function handleMoonriverEvent(event: MoonbeamEvent<TransferEventArg
     await transaction.save();
 }
 
-export async function handleMoonriverCall(event: MoonbeamCall<ApproveCallArgs>): Promise<void> {
+export async function handleFrontierEvmCall(event: FrontierEvmCall<ApproveCallArgs>): Promise<void> {
     const approval = new Approval(event.hash);
 
     approval.owner = event.from;

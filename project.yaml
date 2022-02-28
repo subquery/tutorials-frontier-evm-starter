@@ -1,9 +1,9 @@
 specVersion: "0.2.0"
 
-name: "Moonriver EVM Starter Project"
+name: "Frontier EVM Starter Project"
 version: "1.0.0"
-description: "A basic Moonriver EVM example project with an event and call handler. Read more about this at https://doc.subquery.network/create/moonbeam/"
-repository: "https://github.com/subquery/tutorials-moonriver-evm-starter"
+description: "A basic Frontier EVM example project with an event and call handler. Read more about this at https://doc.subquery.network/create/frontier/"
+repository: "https://github.com/subquery/tutorials-frontier-evm-starter"
 
 schema:
   file: "./schema.graphql"
@@ -13,15 +13,14 @@ network:
   endpoint: wss://moonriver.api.onfinality.io/public-ws
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: 'https://api.subquery.network/sq/subquery/moonriver-dictionary'
-
   chaintypes:
-    file: "./types.yaml"
+    file: ./dist/chaintypes.js
 
 dataSources:
-  - kind: substrate/Moonbeam
+  - kind: substrate/FrontierEvm
     startBlock: 752073
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: './node_modules/@subql/contract-processors/dist/frontierEvm.js'
       options:
         # Must be a key of assets
         abi: erc20
@@ -33,8 +32,8 @@ dataSources:
     mapping:
       file: './dist/index.js'
       handlers:
-        - handler: handleMoonriverEvent
-          kind: substrate/MoonbeamEvent
+        - handler: handleFrontierEvmEvent
+          kind: substrate/FrontierEvmEvent
           filter:
             ## Topics that follow Ethereum JSON-RPC log filters
             ## https://docs.ethers.io/v5/concepts/events/
@@ -56,16 +55,15 @@ dataSources:
               - null
               - null
               - null
-        - handler: handleMoonriverCall
-          kind: substrate/MoonbeamCall
+        - handler: handleFrontierEvmCall
+          kind: substrate/FrontierEvmCall
           filter:
             ## The function can either be the method fragment or signature
             # function: '0x095ea7b3'
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
             # function: approve(address,uint256)
             function: approve(address to,uint256 value)
-
             ## The transaction sender
-            # from: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+            from: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
 
 
