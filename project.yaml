@@ -17,10 +17,10 @@ network:
     file: ./dist/chaintypes.js
 
 dataSources:
-  - kind: substrate/Frontier
+  - kind: substrate/FrontierEvm
     startBlock: 752073
     processor:
-      file: './node_modules/@subql/contract-processors/dist/frontier.js'
+      file: './node_modules/@subql/contract-processors/dist/frontierEvm.js'
       options:
         # Must be a key of assets
         abi: erc20
@@ -32,8 +32,8 @@ dataSources:
     mapping:
       file: './dist/index.js'
       handlers:
-        - handler: handleFrontierEvent
-          kind: substrate/FrontierEvent
+        - handler: handleFrontierEvmEvent
+          kind: substrate/FrontierEvmEvent
           filter:
             ## Topics that follow Ethereum JSON-RPC log filters
             ## https://docs.ethers.io/v5/concepts/events/
@@ -55,8 +55,8 @@ dataSources:
               - null
               - null
               - null
-        - handler: handleFrontierCall
-          kind: substrate/FrontierCall
+        - handler: handleFrontierEvmCall
+          kind: substrate/FrontierEvmCall
           filter:
             ## The function can either be the method fragment or signature
             # function: '0x095ea7b3'
