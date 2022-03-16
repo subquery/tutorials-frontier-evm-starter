@@ -30,7 +30,7 @@ subql help
 
 Inside the directory in which you want to create the SubQuery project, simply replace `project-name` with your project name and run the command:
 ```
-subql init --starter project-name
+subql init project-name
 ```
 Then you should see a folder with your project name has been created inside the directory, you can use this as the start point of your project. And the files should be identical as in the [Directory Structure](https://doc.subquery.network/directory_structure.html).
 
