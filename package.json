@@ -19,8 +19,8 @@
   "author": "Ian He & Jay Ji",
   "license": "Apache-2.0",
   "resolutions": {
-    "@polkadot/api": "7.8.1",
-    "@polkadot/types": "7.8.1",
+    "@polkadot/api": "^7.12.1",
+    "@polkadot/types": "^7.12.1",
     "@polkadot/util": "8.4.1"
   },
   "dependencies": {
