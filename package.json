@@ -4,7 +4,7 @@
   "description": "A basic Frontier EVM example project with an event and call handler. Read more about this at https://doc.subquery.network/create/frontier/. This project can be use as a starting point for developing your SubQuery project",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc -b",
+    "build": "./node_modules/.bin/subql build",
     "prepack": "rm -rf dist && npm build",
     "test": "jest",
     "codegen": "./node_modules/.bin/subql codegen"
@@ -18,19 +18,18 @@
   ],
   "author": "Ian He & Jay Ji",
   "license": "Apache-2.0",
-  "resolutions": {
-    "@polkadot/api": "^7.12.1",
-    "@polkadot/types": "^7.12.1",
-    "@polkadot/util": "8.4.1"
-  },
   "dependencies": {
+    "@subql/contract-processors": "^0.6.0",
     "moonbeam-types-bundle": "^2.0.3"
   },
   "devDependencies": {
-    "@polkadot/api": "^7",
-    "@subql/cli": "^0.16.2",
-    "@subql/contract-processors": "0.5.3",
-    "@subql/types": "^0.14.0",
+    "@polkadot/api": "^8",
+    "@subql/cli": "^0.27.0",
+    "@subql/types": "^0.15.0",
     "typescript": "^4.6.2"
+  },
+  "exports": {
+    "frontierEvm": "./node_modules/@subql/contract-processors/dist/frontierEvm.js",
+    "chaintypes": "src/chaintypes.ts"
   }
 }
