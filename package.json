@@ -1,7 +1,7 @@
 {
   "name": "frontier-evm-starter-project",
   "version": "1.0.0",
-  "description": "A basic Frontier EVM example project with an event and call handler. Read more about this at https://doc.subquery.network/create/frontier/. This project can be use as a starting point for developing your SubQuery project",
+  "description": "A basic Frontier EVM example project with an event and call handler. Read more about this at https://university.subquery.network/build/substrate-evm.html. This project can be use as a starting point for developing your SubQuery project",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -b",
@@ -16,7 +16,7 @@
     "schema.graphql",
     "project.yaml"
   ],
-  "author": "Ian He & Jay Ji",
+  "author": "SubQuery",
   "license": "Apache-2.0",
   "resolutions": {
     "@polkadot/api": "8.3.1",
