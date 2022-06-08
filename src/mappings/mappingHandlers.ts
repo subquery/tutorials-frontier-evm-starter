@@ -1,6 +1,5 @@
 import {Approval, Transaction} from "../types";
-import { FrontierEvmEvent, FrontierEvmCall } from '@subql/contract-processors/dist/frontierEvm';
-
+import { FrontierEvmEvent, FrontierEvmCall } from '@subql/frontier-evm-processor';
 import { BigNumber } from "ethers";
 
 // Setup types from ABI
