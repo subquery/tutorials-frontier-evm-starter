@@ -10,7 +10,7 @@ schema:
 
 network:
   genesisHash: "0x401a1f9dca3da46f5c4091016c8a2f26dcea05865116b286f60f668207d1474b" # Genesis hash of Moonriver
-  endpoint: wss://moonriver.api.onfinality.io/public-ws
+  endpoint: "https://moonriver.api.onfinality.io/public"
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: "https://api.subquery.network/sq/subquery/moonriver-dictionary"
   chaintypes:
@@ -20,7 +20,7 @@ dataSources:
   - kind: substrate/FrontierEvm
     startBlock: 752073
     processor:
-      file: "/node_modules/@subql/frontier-evm-processor/dist/index.js"
+      file: "./node_modules/@subql/frontier-evm-processor/dist/index.js"
       options:
         abi: erc20
         address: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b" # Solarbeam's token
