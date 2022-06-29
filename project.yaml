@@ -20,12 +20,10 @@ dataSources:
   - kind: substrate/FrontierEvm
     startBlock: 752073
     processor:
-      file: "./node_modules/@subql/contract-processors/dist/frontierEvm.js"
+      file: "/node_modules/@subql/frontier-evm-processor/dist/index.js"
       options:
-        # Must be a key of assets
         abi: erc20
-        ## The contract that emitted the event
-        address: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
+        address: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b" # Solarbeam's token
     assets:
       erc20:
         file: "./erc20.abi.json"
