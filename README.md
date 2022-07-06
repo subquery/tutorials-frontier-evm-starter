@@ -1,5 +1,6 @@
 # SubQuery - Starter Package
 
+A basic Frontier EVM example project with an event and call handler. Read more about this at https://university.subquery.network/build/substrate-evm.html. This project can be use as a starting point for developing your SubQuery project
 
 The Starter Package is an example that you can use as a starting point for developing your SubQuery project.
 A SubQuery package defines which data The SubQuery will index from the Substrate blockchain, and how it will store it. 
@@ -30,7 +31,7 @@ subql help
 
 Inside the directory in which you want to create the SubQuery project, simply replace `project-name` with your project name and run the command:
 ```
-subql init --starter project-name
+subql init project-name
 ```
 Then you should see a folder with your project name has been created inside the directory, you can use this as the start point of your project. And the files should be identical as in the [Directory Structure](https://doc.subquery.network/directory_structure.html).
 
