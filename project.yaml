@@ -14,29 +14,34 @@ repository: https://github.com/subquery/tutorials-frontier-evm-starter
 schema:
   file: ./schema.graphql
 network:
-  chainId: "0x401a1f9dca3da46f5c4091016c8a2f26dcea05865116b286f60f668207d1474b"
-  endpoint: wss://moonriver.api.onfinality.io/public-ws
-  dictionary: https://api.subquery.network/sq/subquery/moonriver-dictionary
+  chainId: "0x401a1f9dca3da46f5c4091016c8a2f26dcea05865116b286f60f668207d1474b" # Genesis hash of Moonriver
+  endpoint: "https://moonriver.api.onfinality.io/public"
+  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
+  dictionary: "https://api.subquery.network/sq/subquery/moonriver-dictionary"
   chaintypes:
     file: ./dist/chaintypes.js
 dataSources:
   - kind: substrate/FrontierEvm
     startBlock: 752073
     processor:
-      file: ./node_modules/@subql/contract-processors/dist/frontierEvm.js
+      file: "./node_modules/@subql/frontier-evm-processor/dist/index.js"
       options:
         abi: erc20
-        address: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
+        address: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b" # Solarbeam's token
     assets:
       erc20:
-        file: ./erc20.abi.json
+        file: "./erc20.abi.json"
     mapping:
-      file: ./dist/index.js
+      file: "./dist/index.js"
       handlers:
         - handler: handleFrontierEvmEvent
           kind: substrate/FrontierEvmEvent
           filter:
             topics:
+              ## Example valid values:
+              # - '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef'
+              # - Transfer(address,address,u256)
+              # - Transfer(address from,address to,uint256 value)
               - Transfer(address indexed from,address indexed to,uint256 value)
               - null
               - null
@@ -45,4 +50,5 @@ dataSources:
           kind: substrate/FrontierEvmCall
           filter:
             function: approve(address to,uint256 value)
+            ## The transaction sender
             from: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"

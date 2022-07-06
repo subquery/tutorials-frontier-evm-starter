@@ -7,7 +7,8 @@
     "build": "tsc -b",
     "prepack": "rm -rf dist && npm build",
     "test": "jest",
-    "codegen": "./node_modules/.bin/subql codegen"
+    "codegen": "./node_modules/.bin/subql codegen",
+    "start:docker": "docker-compose pull && docker-compose up --remove-orphans"
   },
   "homepage": "https://github.com/subquery/tutorials-frontier-evm-starter",
   "repository": "github:subquery/tutorials-frontier-evm-starter",
@@ -16,23 +17,25 @@
     "schema.graphql",
     "project.yaml"
   ],
-  "author": "SubQuery",
+  "author": "SubQuery Team",
   "license": "Apache-2.0",
   "resolutions": {
-    "@polkadot/api": "8.3.1",
-    "@polkadot/types": "8.3.1",
-    "@polkadot/util": "9.1.1",
+    "@polkadot/api": "8.8.2",
+    "@polkadot/types": "8.8.2",
+    "@polkadot/util": "9.4.1",
     "ipfs-unixfs": "6.0.6"
   },
   "dependencies": {
-    "@subql/frontier-evm-processor": "^0.0.1-0",
-    "moonbeam-types-bundle": "^2.0.4"
+    "moonbeam-types-bundle": "^2.0.7"
   },
   "devDependencies": {
-    "@polkadot/api": "^8",
+    "@polkadot/api": "8.8.2",
     "@subql/cli": "latest",
-    "@subql/contract-processors": "0.6.0",
-    "@subql/types": "^0.15.0",
+    "@subql/frontier-evm-processor": "latest",
+    "@subql/types": "^1.1.0",
     "typescript": "^4.6.2"
+  },
+  "exports": {
+    "chaintypes": "src/chaintypes.ts"
   }
 }
