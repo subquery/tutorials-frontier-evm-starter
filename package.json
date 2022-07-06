@@ -1,13 +1,14 @@
 {
   "name": "frontier-evm-starter-project",
   "version": "1.0.0",
-  "description": "A basic Frontier EVM example project with an event and call handler. Read more about this at https://doc.subquery.network/create/frontier/. This project can be use as a starting point for developing your SubQuery project",
+  "description": "A basic Frontier EVM example project with an event and call handler. Read more about this at https://university.subquery.network/create/frontier/. This project can be use as a starting point for developing your SubQuery project",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -b",
     "prepack": "rm -rf dist && npm build",
     "test": "jest",
-    "codegen": "./node_modules/.bin/subql codegen"
+    "codegen": "./node_modules/.bin/subql codegen",
+    "start:docker": "docker-compose pull && docker-compose up --remove-orphans"
   },
   "homepage": "https://github.com/subquery/tutorials-frontier-evm-starter",
   "repository": "github:subquery/tutorials-frontier-evm-starter",
@@ -16,18 +17,22 @@
     "schema.graphql",
     "project.yaml"
   ],
-  "author": "Ian He & Jay Ji",
+  "author": "SubQuery Team",
   "license": "Apache-2.0",
   "resolutions": {
-    "@polkadot/api": "7.8.1",
-    "@polkadot/types": "7.8.1",
-    "@polkadot/util": "8.4.1"
+    "@polkadot/api": "8.8.2",
+    "@polkadot/types": "8.8.2",
+    "@polkadot/util": "9.4.1",
+    "ipfs-unixfs": "6.0.6"
   },
   "devDependencies": {
-    "@polkadot/api": "7.8.1",
-    "@subql/cli": "^0.16.2",
-    "@subql/contract-processors": "0.5.3",
-    "@subql/types": "^0.14.0",
-    "typescript": "^4.4.4"
+    "@polkadot/api": "8.8.2",
+    "@subql/cli": "latest",
+    "@subql/frontier-evm-processor": "latest",
+    "@subql/types": "^1.1.0",
+    "typescript": "^4.6.2"
+  },
+  "exports": {
+    "chaintypes": "src/chaintypes.ts"
   }
 }
