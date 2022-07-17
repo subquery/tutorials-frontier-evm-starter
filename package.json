@@ -4,7 +4,7 @@
   "description": "A basic Frontier EVM example project with an event and call handler. Read more about this at https://university.subquery.network/create/frontier/. This project can be use as a starting point for developing your SubQuery project",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc -b",
+    "build": "subql build",
     "prepack": "rm -rf dist && npm build",
     "test": "jest",
     "codegen": "./node_modules/.bin/subql codegen",
@@ -20,13 +20,13 @@
   "author": "SubQuery Team",
   "license": "Apache-2.0",
   "resolutions": {
-    "@polkadot/api": "8.8.2",
+    "@polkadot/api": "^8",
     "@polkadot/types": "8.8.2",
     "@polkadot/util": "9.4.1",
     "ipfs-unixfs": "6.0.6"
   },
   "devDependencies": {
-    "@polkadot/api": "8.8.2",
+    "@polkadot/api": "^8",
     "@subql/cli": "latest",
     "@subql/frontier-evm-processor": "latest",
     "@subql/types": "^1.1.0",
