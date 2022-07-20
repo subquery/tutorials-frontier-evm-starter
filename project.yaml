@@ -9,7 +9,7 @@ runner:
     name: "@subql/query"
     version: ">=0.16.0"
 description: >-
-  A basic Frontier EVM example project with an event and call handler. Read more about this at https://university.subquery.network/build/substrate-evm.html. This project can be use as a starting point for developing your SubQuery project
+  A basic Frontier EVM example project with an event and call handler. Read more about this at https://academy.subquery.network/build/substrate-evm.html. This project can be use as a starting point for developing your SubQuery project
 repository: https://github.com/subquery/tutorials-frontier-evm-starter
 schema:
   file: ./schema.graphql
